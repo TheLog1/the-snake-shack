@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { viewSnakes } from '../../api/snake'
-import { Link, withRouter } from 'react-router-dom'
+import { Redirect, Link, withRouter } from 'react-router-dom'
 import messages from '../AutoDismissAlert/messages'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
@@ -38,6 +38,9 @@ const Snakes = ({ msgAlert, user, match }) => {
         variant: 'danger'
       }))
   }
+  if (deleted) {
+    return <Redirect to='/snakes' />
+  }
   let snakesToRender
   if (snakes) {
     snakesToRender = snakes.map(snake => {
@@ -46,21 +49,24 @@ const Snakes = ({ msgAlert, user, match }) => {
           <Container>
             <Row>
               <Col xl={{ span: 12, offset: 3 }}>
-                <Card style={{ backgroundColor: '#d9c6a5', width: '35rem', margin: '10px', opacity: '100%' }}>
-                  <Card.Header as="h5" style={{ backgroundColor: '#a35d6a' }}>Species- {snake.species}</Card.Header>
+                <Card style={{ backgroundColor: 'green', width: '35rem', margin: '10px', opacity: '100%' }}>
+                  <Card.Header as="h5" style={{ backgroundColor: 'purple' }}>Species- {snake.species}</Card.Header>
                   <Card.Body>
                     <Card.Title>This snakes name is {snake.name}</Card.Title>
-                    <Card.Subtitle>Morph- {snake.morph}</Card.Subtitle>
+                    <Card.Subtitle>Morph - {snake.morph}</Card.Subtitle>
                     <Card.Text>
-                      Last Shed Was On <br />{snake.shed}
+                      Last Shed Was <br />{snake.shed}
                     </Card.Text>
                     <Card.Text>
-                      Last Feeding Was On <br />{snake.fed}
+                      Last Feeding Was <br />{snake.fed}
                     </Card.Text>
                     <React.Fragment>
                       <Button className='btn btn-danger' onClick={() => destroy(snake._id)}>Delete Post</Button>
                       <Link to={`/update-snake/${snake._id}`}>
                         <Button className='btn btn-warning'>Update snake</Button>
+                      </Link>
+                      <Link to={`/show-snake/${snake._id}`}>
+                        <Button className='btn btn-submit'>Show snake</Button>
                       </Link>
                     </React.Fragment>
                   </Card.Body>
