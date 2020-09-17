@@ -8,6 +8,9 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import CreateSnake from '../Snake/CreateSnake'
+import Snakes from '../Snake/Snakes'
+import UpdateSnake from '../Snake/UpdateSnake'
 
 class App extends Component {
   constructor () {
@@ -53,6 +56,15 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/add-snake' render={() => (
+            <CreateSnake msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/snakes' render={() => (
+            <Snakes msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update-snake/:id' render={({ match }) => (
+            <UpdateSnake msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
         </main>
       </Fragment>
