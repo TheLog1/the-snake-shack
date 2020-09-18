@@ -17,7 +17,7 @@ const OneSnake = ({ msgAlert, user, match }) => {
     showSnake(user, snake, match.params.id)
       .then(res => setSnake(res.data.snake))
       .catch(console.error)
-  }, [deleted])
+  }, [])
   const destroy = (id) => {
     axios({
       url: apiUrl + `/snakes/${id}`,
@@ -50,8 +50,8 @@ const OneSnake = ({ msgAlert, user, match }) => {
               <Container>
                 <Row>
                   <Col xl={{ span: 12, offset: 3 }}>
-                    <Card style={{ backgroundColor: 'green', width: '35rem', margin: '10px', opacity: '100%' }}>
-                      <Card.Header as="h5" style={{ backgroundColor: 'purple' }}>Species- {snake.species}</Card.Header>
+                    <Card style={{ backgroundColor: 'rgb(221, 153, 255)', width: '35rem', margin: '10px', opacity: '100%' }}>
+                      <Card.Header as="h5" style={{ backgroundColor: 'rgb(166, 166, 166)' }}>Species - {snake.species}</Card.Header>
                       <Card.Body>
                         <Card.Title>This snakes name is {snake.name}</Card.Title>
                         <Card.Subtitle>Morph - {snake.morph}</Card.Subtitle>

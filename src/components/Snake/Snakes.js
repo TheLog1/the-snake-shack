@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { viewSnakes } from '../../api/snake'
-import { Redirect, Link, withRouter } from 'react-router-dom'
-import messages from '../AutoDismissAlert/messages'
-import apiUrl from '../../apiConfig'
-import axios from 'axios'
+import { Link, withRouter } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -12,35 +9,11 @@ import Col from 'react-bootstrap/Col'
 
 const Snakes = ({ msgAlert, user, match }) => {
   const [snakes, setSnakes] = useState([])
-  const [deleted, setDeleted] = useState(false)
   useEffect(() => {
     viewSnakes(user, snakes)
       .then(res => setSnakes(res.data.snakes))
       .catch(console.error)
-  }, [deleted])
-  const destroy = (id) => {
-    axios({
-      url: apiUrl + `/snakes/${id}`,
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${user.token}`
-      }
-    })
-      .then(() => setDeleted(id))
-      .then(() => msgAlert({
-        heading: 'Delete Snake Success',
-        message: messages.deleteSnakeSuccess,
-        variant: 'success'
-      }))
-      .catch(() => msgAlert({
-        heading: 'Delete Snake Failure',
-        message: messages.deleteSnakeFailure,
-        variant: 'danger'
-      }))
-  }
-  if (deleted) {
-    return <Redirect to='/snakes' />
-  }
+  }, [])
   let snakesToRender
   if (snakes) {
     snakesToRender = snakes.map(snake => {
@@ -49,8 +22,8 @@ const Snakes = ({ msgAlert, user, match }) => {
           <Container>
             <Row>
               <Col xl={{ span: 12, offset: 3 }}>
-                <Card style={{ backgroundColor: 'green', width: '35rem', margin: '10px', opacity: '100%' }}>
-                  <Card.Header as="h5" style={{ backgroundColor: 'purple' }}>Species- {snake.species}</Card.Header>
+                <Card style={{ backgroundColor: 'rgb(221, 153, 255)', width: '35rem', margin: '10px', opacity: '100%' }}>
+                  <Card.Header as="h5" style={{ backgroundColor: 'rgb(166, 166, 166)' }}>Species - {snake.species}</Card.Header>
                   <Card.Body>
                     <Card.Title>This snakes name is {snake.name}</Card.Title>
                     <Card.Subtitle>Morph - {snake.morph}</Card.Subtitle>
@@ -61,10 +34,6 @@ const Snakes = ({ msgAlert, user, match }) => {
                       Last Feeding Was <br />{snake.fed}
                     </Card.Text>
                     <React.Fragment>
-                      <Button className='btn btn-danger' onClick={() => destroy(snake._id)}>Delete Post</Button>
-                      <Link to={`/update-snake/${snake._id}`}>
-                        <Button className='btn btn-warning'>Update snake</Button>
-                      </Link>
                       <Link to={`/show-snake/${snake._id}`}>
                         <Button className='btn btn-submit'>Show snake</Button>
                       </Link>

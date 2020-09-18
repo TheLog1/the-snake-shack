@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import styles from '../../header.css'
 
 const authenticatedOptions = (
   <Fragment>
@@ -20,13 +21,12 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link to="/">Home</Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
-    <Navbar.Brand href="#">
+  <Navbar className={styles.navbarBackground}>
+    <Navbar.Brand className="" href="#">
       The Snake Shack
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

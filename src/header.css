@@ -1,0 +1,5 @@
+:local(.navbarBackground) {
+  margin: 1rem auto;
+  position: relative;
+  background: rgb(221, 153, 255);
+}
