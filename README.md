@@ -11,8 +11,8 @@ the particular snake and click update snake. And don't worry, if you get rid of 
 
 - [API Repo](https://github.com/TheLog1/the-snake-shack-api)
 - [Client Repo](https://github.com/TheLog1/the-snake-shack)
-- [Deployed API](peaceful-wave-30757.herokuapp.com/)
-- [Deployed Client](thelog1.github.io/the-snake-shack/)
+- [Deployed API](https://peaceful-wave-30757.herokuapp.com/)
+- [Deployed Client](https://thelog1.github.io/the-snake-shack/#/)
 
 ## Planning
 
