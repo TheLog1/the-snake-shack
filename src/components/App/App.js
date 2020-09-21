@@ -12,6 +12,7 @@ import CreateSnake from '../Snake/CreateSnake'
 import Snakes from '../Snake/Snakes'
 import UpdateSnake from '../Snake/UpdateSnake'
 import OneSnake from '../Snake/OneSnake'
+import Landing from '../Snake/Landing'
 
 class App extends Component {
   constructor () {
@@ -69,6 +70,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/show-snake/:id' render={({ match }) => (
             <OneSnake msgAlert={this.msgAlert} user={user} match={match}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/home' render={() => (
+            <Landing msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

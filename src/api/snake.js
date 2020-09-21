@@ -3,7 +3,6 @@ import axios from 'axios'
 // import { withRouter } from 'react-router-dom'
 
 export const createSnake = (user, snake) => {
-  console.log(snake)
   return axios({
     url: apiUrl + '/snakes',
     method: 'POST',

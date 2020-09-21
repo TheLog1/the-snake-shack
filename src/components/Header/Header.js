@@ -5,10 +5,11 @@ import styles from '../../header.css'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
-    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link href='#home'>Home</Nav.Link>
     <Nav.Link href="#add-snake">Add A Snake</Nav.Link>
     <Nav.Link href='#snakes'>Your Snake Collection</Nav.Link>
+    <Nav.Link href="#change-password">Change Password</Nav.Link>
+    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
 )
 
