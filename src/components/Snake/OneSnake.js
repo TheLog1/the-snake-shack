@@ -53,7 +53,7 @@ const OneSnake = ({ msgAlert, user, match }) => {
                     <Card style={{ backgroundColor: 'rgb(221, 153, 255)', width: '60rem', margin: '10px', opacity: '100%' }}>
                       <Card.Header as="h3" style={{ backgroundColor: 'rgb(166, 166, 166)' }}>Species - {snake.species}</Card.Header>
                       <Card.Body>
-                        <Card.Title>This snakes name is {snake.name}</Card.Title>
+                        <Card.Title as="h4">This snakes name is {snake.name}</Card.Title>
                         <Card.Subtitle as="h4">Morph - {snake.morph}</Card.Subtitle>
                         <Card.Text as="h5">
                           Last Shed Was <br />{snake.shed}

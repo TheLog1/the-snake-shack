@@ -1,129 +1,59 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+## The Snake Shack: A Snake keeper data tracker
 
-# react-auth-template
+The Snake Shack is a data tracker for snake keepers around the world! It's simple
+to start using too! All you have to do is sign up with a "dummy email"(123@123.com)
+and you can start adding snakes right away! Just click "add a snake" and enter the required
+info. To update when they feed just click on "your snake collection", click to view
+the particular snake and click update snake. And don't worry, if you get rid of a snake you can delete it from your collection so it wont clutter things up. Enjoy!
 
-A front-end framework template for starting projects with a recent version of
-either the [Rails API Template](https://git.generalassemb.ly/ga-wdi-boston/rails-api-template)
-or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template).
 
-## Installation
+## Important Links
 
-1. [Download](../../archive/master.zip) this template.
-1. Unzip and rename the template directory (`unzip ~/Downloads/react-auth-template-master.zip`).
-1. Move into the new project and `git init`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace `react-auth-template` in `package.json` with your
-   projects name.
-1. Replace the `"homepage"` field in `package.json` with your (public) Github
-   account name and repository name.
-1. Install dependencies with `npm install`.
-1. `git add` and `git commit` your changes.
-1. Run the development server with `npm start`.
+- [API Repo](https://github.com/TheLog1/the-snake-shack-api)
+- [Client Repo](https://github.com/TheLog1/the-snake-shack)
+- [Deployed API](peaceful-wave-30757.herokuapp.com/)
+- [Deployed Client](thelog1.github.io/the-snake-shack/)
 
-## Deployment
+## Planning
 
-Before deploying, you first need to make sure the `homepage` key in your
-`package.json` is pointing to the correct value. It should be the url of your
-deployed application.
+For my capstone project I was really wanting to think of something not only unique,
+but something I could use on a frequent basis along with being useful. As I was tending to
+my snakes, something clicked in my head. I have always used post-it notes stuck to my
+cages and wrote down when that certain snake has shed and everytime they eat. Perfect! I
+could create an app to keep track of that for me! All I need to do is have it let me add a
+snake and edit when it eats or sheds. So I started building the api, then functionality on
+the front end, then had enough time left over to add a little bit of styling.
 
-To deploy you should first make sure you are on the `master` branch with a
-clean working directory, then you can run `npm run deploy` and wait to see if
-it runs successfully.
+### User Stories
 
-## About
+As a unregistered user, I would like to sign up with email and password.
+As a registered user, I would like to sign in with email and password.
+As a signed in user, I would like to change password.
+As a signed in user, I would like to sign out.
+As a snake owner, I would like to be able to add owned snakes.
+As a snake owner, I would like to be able to keep track of my snakes last feeding.
+As a snake owner, I would like to be able to keep track of their last shed.
 
-This template is derived from GA Boston's [react-template](https://git.generalassemb.ly/ga-wdi-boston/react-template).
-Most of the development dependencies, such as linters, SCSS compiler, Webpack
-config, NPM scripts, etc in this repo come from there.
+### Technologies Used
 
-It includes all the components and routes needed to sign up, sign in, change
-passwords, and sign out of an API built with either template linked above, with
-no need for modification.
+- Reactjs
+- Bootstrap
+- Javascript
+- HTML/CSS
+- Expressjs
+- MongoDB
+- Mongoose
 
-**NOTE**: You should customize the included components to suit you app! They're
-provided as a guide and a bare minimum of functionality and style. Consider
-changing the provided SCSS styles, modifying the auth code, improving the flash
-messages, etc.
+### Unsolved Problems
 
-## Structure
 
-The top-level `App` component stores the currently authenticated
-user in state, as well as data related to the flash messages. `App` renders the
-`Header` component, and a list of routes, each of which render a component from
-`src/components`. The `src/api` directory has a component file, `auth.js`, which
-contains all the needed `axios` calls pertaining to authentication.
+Adding a date picker to the last shed and feeding.
 
-You can follow this pattern in your app as well. For instance, if you are making
-an app that keeps track of books, you might want a `src/api/books.js`, which
-contains its own `axios` call pertaining to your books resource CRUD actions.
-Using a separate directory within `components` for each individual component you
-add makes it easy to locate and update components and has the added benefit of
-making it easy to create custom styles that apply to that specific component.
-To apply component specific styles, add a file to the component's directory such
-as `ComponentName.scss` and then import it directly into the component with
-`import './ComponentName.scss'`.  This will keep your styles modularized and
-make it easier to make changes at the component level.
 
-## Features
+#### Wireframe:
+<img alt="Sign Up" src="https://i.imgur.com/8LDr6sy.png">
+<img alt="Add a snake" src="https://i.imgur.com/gf9Cpp4.png">
+<img alt="View Snakes" src="https://i.imgur.com/Fk40fk7.png">
 
-### `<AuthenticatedRoute />`
-
-This template contains a handy component for creating routes that require a
-user to be authenticated before visiting. This component lives in
-`src/auth/components/AuthenticatedRoute.js` and is already required in `App`.
-It's a thin wrapper around React Router's `<Route />` component. The only
-difference is that it expects a prop called `user`, and if that prop is falsy,
-it will render a `<Redirect />` that takes the user to `/`. **To use
-it, you must pass it the user as a prop!**
-
-It supports both the `component=` and `render=` attributes, but like `<Route />`
-it will not forward props to the component if you use `component=`.
-
-### `<AutoAlertDismiss />` Component
-
-This template also already contains a component that displays user messages.
-Messages are configurable via redux actions.  This component can be found in
-`src/components/AutoAlertDismiss/AutoAlertDismiss.js`. **There is no need to add
-this component to your app. It is already required in `App`.**  A single
-component instance is used to manage all alerts application-wide.
-
-The alert can be used by passing the `alertMsg` method to a rendered route.  The
-`alertMsg` method expects an object with a `heading`, `message`, and a `variant` property.
-
-Use this component in conjunction with the `messages.js` file in the same
-directory to create and manage all of your application messages in one place.
-
-The `variant` property must be a Bootstrap alert variant, as this component is merely a
-wrapper around the [react-bootstrap Alert
-component](https://react-bootstrap.github.io/components/alerts/).  The types it
-will accept are: 'primary', 'secondary', 'success', 'danger', 'warning', 'info',
-'light', and 'dark'.
-
- To change the duration of the message, replace `5000` with a value of your
- choice (in milliseconds) in this component's `componentDidMount` method.
-
-### `src/apiConfig.js`
-
-Just like in
-[browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template),
-this file will determine whether you're in a production or development
-environment and choose an API URL accordingly. Don't forget to replace the
-`production` URL with your deployed API's URL.
-
-## Tasks
-
-Developers should run these often!
-
-- `npm run nag`: runs code quality analysis tools on your code and complains.
-- `npm run make-standard`: reformats all your code in the JavaScript Standard
-  Style.
-- `npm run start`: generates bundles, watches, and livereloads.
-- `npm run build`: place bundled styles and scripts where `index.html` can find
-    them
-- `npm run deploy`: builds and deploys master branch
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+### Live App View
+<img alt="The Snake Shack" src="https://i.imgur.com/2pywnVH.png">
