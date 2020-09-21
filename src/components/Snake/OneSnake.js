@@ -62,7 +62,7 @@ const OneSnake = ({ msgAlert, user, match }) => {
                           Last Feeding Was <br />{snake.fed}
                         </Card.Text>
                         <React.Fragment>
-                          <Button className='btn btn-danger' onClick={() => destroy(snake._id)}>Delete Post</Button>
+                          <Button className='btn btn-danger' onClick={() => destroy(snake._id)}>Delete Snake</Button>
                           <Link to={`/update-snake/${snake._id}`}>
                             <Button className='btn btn-warning'>Update snake</Button>
                           </Link>
