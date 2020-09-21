@@ -1,0 +1,1 @@
+{"version":3,"sources":["header.css"],"names":[],"mappings":"AAAA,yBACE,iBACA,kBACA,eAA+B","file":"static/css/main.6d09752d.css","sourcesContent":[":local(.navbarBackground) {\n  margin: 1rem auto;\n  position: relative;\n  background: rgb(221, 153, 255);\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/header.css"],"sourceRoot":""}
