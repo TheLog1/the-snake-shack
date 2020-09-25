@@ -6,6 +6,8 @@ and you can start adding snakes right away! Just click "add a snake" and enter t
 info. To update when they feed just click on "your snake collection", click to view
 the particular snake and click update snake. And don't worry, if you get rid of a snake you can delete it from your collection so it wont clutter things up. Enjoy!
 
+### Live App View
+<img alt="The Snake Shack" src="https://i.imgur.com/2pywnVH.png">
 
 ## Important Links
 
@@ -55,5 +57,4 @@ Adding a date picker to the last shed and feeding.
 <img alt="Add a snake" src="https://i.imgur.com/gf9Cpp4.png">
 <img alt="View Snakes" src="https://i.imgur.com/Fk40fk7.png">
 
-### Live App View
-<img alt="The Snake Shack" src="https://i.imgur.com/2pywnVH.png">
+
